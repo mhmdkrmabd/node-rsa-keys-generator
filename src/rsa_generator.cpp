@@ -51,15 +51,22 @@ std::optional<KeyPair> RSAGenerator::generateKeys(int keyLength) {
 
     std::unique_ptr<EVP_PKEY, decltype(&EVP_PKEY_free)> keyPtr(pkey, EVP_PKEY_free);
 
-    // Extract public key PEM
+    // Get RSA key from EVP_PKEY for PKCS#1 format export
+    RSA* rsa = EVP_PKEY_get1_RSA(keyPtr.get());
+    if (!rsa) {
+        return std::nullopt;
+    }
+    std::unique_ptr<RSA, decltype(&RSA_free)> rsaPtr(rsa, RSA_free);
+
+    // Extract public key PEM in PKCS#1 format (BEGIN RSA PUBLIC KEY)
     std::unique_ptr<BIO, decltype(&BIO_free)> pubBio(BIO_new(BIO_s_mem()), BIO_free);
-    if (!pubBio || PEM_write_bio_PUBKEY(pubBio.get(), keyPtr.get()) != 1) {
+    if (!pubBio || PEM_write_bio_RSAPublicKey(pubBio.get(), rsaPtr.get()) != 1) {
         return std::nullopt;
     }
 
-    // Extract private key PEM
+    // Extract private key PEM in PKCS#1 format (BEGIN RSA PRIVATE KEY)
     std::unique_ptr<BIO, decltype(&BIO_free)> privBio(BIO_new(BIO_s_mem()), BIO_free);
-    if (!privBio || PEM_write_bio_PrivateKey(privBio.get(), keyPtr.get(), nullptr, nullptr, 0, nullptr, nullptr) != 1) {
+    if (!privBio || PEM_write_bio_RSAPrivateKey(privBio.get(), rsaPtr.get(), nullptr, nullptr, 0, nullptr, nullptr) != 1) {
         return std::nullopt;
     }
 
