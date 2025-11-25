@@ -2,18 +2,14 @@
 
 A cross-platform Node.js native module for generating RSA key pairs and securely storing them in the OS keychain. Built with C++ and N-API for high performance and seamless JavaScript/TypeScript integration.
 
-
-
 ## Overview
 
 The Node RSA Keys Generator provides secure RSA key generation and management for credential encryption. Keys are automatically stored in the operating system's native keychain (Windows Credential Manager on Windows, GNOME Keyring on Linux, macOS Keychain on macOS) for secure, persistent storage.
 
-
-
 ## Installation
 
 ```bash
-npm install node-rsa-keys-generator
+npm install @mhmdkrmabd/node-rsa-keys-generator
 ```
 
 The native module will be automatically compiled during installation using `node-gyp`.
@@ -56,8 +52,6 @@ sudo dnf install gcc gcc-c++ openssl-devel libsecret-devel pkgconfig
 brew install openssl
 ```
 
-
-
 ## Quick Start
 
 ### JavaScript
@@ -93,8 +87,6 @@ if (publicKey) {
     console.log('Successfully generated keys');
 }
 ```
-
-
 
 ## API Reference
 

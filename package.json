@@ -1,16 +1,7 @@
 {
-  "name": "node-rsa-keys-generator",
+  "name": "@mhmdkrmabd/node-rsa-keys-generator",
   "version": "1.0.0",
   "description": "A cross-platform Node.js native module for generating RSA key pairs and securely storing them in the OS keychain",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "scripts": {
-    "build": "node-gyp rebuild",
-    "clean": "node-gyp clean",
-    "configure": "node-gyp configure",
-    "test": "node test.js",
-    "install": "node-gyp rebuild"
-  },
   "keywords": [
     "rsa",
     "keys",
@@ -22,9 +13,26 @@
     "openssl",
     "security"
   ],
-  "author": "Mohammed Abubaker (@mhmdkrmabd)",
+  "homepage": "https://github.com/mhmdkrmabd/node-rsa-keys-generator#readme",
+  "bugs": {
+    "url": "https://github.com/mhmdkrmabd/node-rsa-keys-generator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhmdkrmabd/node-rsa-keys-generator.git"
+  },
   "license": "MIT",
-  "gypfile": true,
+  "author": "Mohammed Abubaker (@mhmdkrmabd)",
+  "type": "commonjs",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "node-gyp rebuild",
+    "clean": "node-gyp clean",
+    "configure": "node-gyp configure",
+    "test": "node test.js",
+    "install": "node-gyp rebuild"
+  },
   "dependencies": {
     "node-addon-api": "^7.0.0"
   },
@@ -34,5 +42,6 @@
   },
   "engines": {
     "node": ">=16.0.0"
-  }
+  },
+  "gypfile": true
 }
