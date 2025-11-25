@@ -1,0 +1,27 @@
+# Build artifacts
+build/
+*.o
+*.a
+*.node
+
+# Development files
+.git
+.gitignore
+*.log
+*.tgz
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+test/
+
+# Development docs
+CLAUDE.md
+BUILD.md
+CMakeLists.txt
