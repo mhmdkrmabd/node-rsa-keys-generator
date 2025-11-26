@@ -1,6 +1,6 @@
 {
   "name": "@mhmdkrmabd/node-rsa-keys-generator",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A cross-platform Node.js native module for generating RSA key pairs and securely storing them in the OS keychain",
   "keywords": [
     "rsa",

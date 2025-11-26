@@ -69,6 +69,16 @@
           "OS=='mac'",
           {
             "defines": ["MACOS_PLATFORM"],
+            "include_dirs": [
+              "<!@(brew --prefix openssl@3 2>/dev/null || echo /opt/homebrew/opt/openssl@3)/include",
+              "/opt/homebrew/opt/openssl@3/include",
+              "/usr/local/opt/openssl@3/include"
+            ],
+            "library_dirs": [
+              "<!@(brew --prefix openssl@3 2>/dev/null || echo /opt/homebrew/opt/openssl@3)/lib",
+              "/opt/homebrew/opt/openssl@3/lib",
+              "/usr/local/opt/openssl@3/lib"
+            ],
             "libraries": [
               "-framework Security",
               "-lssl",
